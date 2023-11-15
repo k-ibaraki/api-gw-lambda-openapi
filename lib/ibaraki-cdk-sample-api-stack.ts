@@ -17,6 +17,9 @@ export class IbarakiCdkSampleApiStack extends cdk.Stack {
     // API Gateway を作成
     const api = new apigateway.RestApi(this, 'IbarakiCdkSampleApi', {
       restApiName: 'Ibaraki CDK Sample API',
+      defaultCorsPreflightOptions: {
+        allowOrigins: apigateway.Cors.ALL_ORIGINS,
+      },
     });
 
     // Lambda を API Gateway に統合
