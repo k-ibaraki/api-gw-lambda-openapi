@@ -21,7 +21,7 @@ export class IbarakiCdkSampleApiStack extends cdk.Stack {
 
     // Lambda を API Gateway に統合
     const ibarakiSampleIntegration = new apigateway.LambdaIntegration(ibarakiSampleLambda);
-    const helloApi = api.root.addResource('hello');
+    const helloApi = api.root.addResource('{param}').addResource('hello');
     helloApi.addMethod('GET', ibarakiSampleIntegration);
   }
 }
