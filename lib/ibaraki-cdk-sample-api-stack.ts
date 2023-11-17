@@ -10,7 +10,7 @@ export class IbarakiCdkSampleApiStack extends cdk.Stack {
     // Lambda 関数を作成
     const ibarakiSampleLambda = new lambda.Function(this, 'ibarakiSampleLambda', {
       runtime: lambda.Runtime.NODEJS_18_X,
-      code: lambda.Code.fromAsset('ibaraki-sample-lambda'),
+      code: lambda.Code.fromAsset('lambda/ibaraki-sample-lambda'),
       handler: 'src/index.handler',
     });
 
@@ -32,5 +32,11 @@ export class IbarakiCdkSampleApiStack extends cdk.Stack {
         },
       ],
     });
+
+    // API Gateway の ID を出力
+    new cdk.CfnOutput(this, 'ApiId', {
+      value: api.restApiId,
+    });
+
   }
 }
