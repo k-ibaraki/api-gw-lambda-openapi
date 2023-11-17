@@ -8,7 +8,8 @@
     "build": "tsc",
     "watch": "tsc -w",
     "test": "jest",
-    "cdk": "cdk"
+    "cdk": "cdk",
+    "export-openapi": "npx ts-node tools/openapi_export.ts"
   },
   "devDependencies": {
     "@types/jest": "^29.4.0",
@@ -20,7 +21,10 @@
     "typescript": "~4.9.5"
   },
   "dependencies": {
+    "@aws-sdk/client-api-gateway": "^3.451.0",
+    "@types/js-yaml": "^4.0.9",
     "aws-cdk-lib": "2.72.0",
+    "js-yaml": "^4.1.0",
     "source-map-support": "^0.5.21"
   }
 }
