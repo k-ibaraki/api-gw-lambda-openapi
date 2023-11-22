@@ -9,7 +9,8 @@
     "watch": "tsc -w",
     "test": "jest",
     "cdk": "cdk",
-    "export-openapi": "npx ts-node tools/openapi_export.ts"
+    "openapi-export": "npx ts-node tools/openapi_export.ts",
+    "openapi-export-v2": "npx ts-node tools/openapi_export_v2.ts"
   },
   "devDependencies": {
     "@types/jest": "^29.4.0",
@@ -25,8 +26,10 @@
     "@aws-cdk/aws-apigatewayv2-integrations-alpha": "^2.110.1-alpha.0",
     "@aws-sdk/client-api-gateway": "^3.451.0",
     "@aws-sdk/client-apigatewayv2": "^3.454.0",
+    "@aws-sdk/credential-providers": "^3.454.0",
     "@types/js-yaml": "^4.0.9",
     "aws-cdk-lib": "^2.72.0",
+    "commander": "^11.1.0",
     "js-yaml": "^4.1.0",
     "source-map-support": "^0.5.21"
   }

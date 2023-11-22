@@ -1,14 +1,26 @@
 import { ApiGatewayV2Client, ExportApiCommand } from "@aws-sdk/client-apigatewayv2";
+import { fromIni } from "@aws-sdk/credential-providers";
 import { promises as fs } from "fs";
-import * as yaml from "js-yaml";
+import { program } from "commander";
 
-const client = new ApiGatewayV2Client({ region: "ap-northeast-1" });
+// 引数のパース
+program
+  .option("-a, --api <api-id>", "API ID")
+  .option("-o, --output <filename>", "Output YAML file path")
+  .option("--profile <aws-profile>", "AWS profile name")
+  .parse(process.argv);
+const options = program.opts();
 
 // apiIDを実行時の引数から取得
-const apiID = process.argv[2] ?? "";
+const apiID = options.api ?? undefined;
 // 出力ファイル名を実行時の引数から取得
-const outputFile = process.argv[3] ?? "openapi.yaml";
+const outputFile = options.output ?? "openAPI/openapi_v2.yaml";
+// profileを実行時の引数から取得
+const profile = options.profile ?? "default";
 
+const client = new ApiGatewayV2Client({
+  credentials: fromIni({ profile: profile }),
+});
 
 async function exportOpenApi(apiId: string, outputFile: string) {
   const command = new ExportApiCommand({
