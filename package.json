@@ -9,13 +9,13 @@
     "watch": "tsc -w",
     "test": "jest",
     "cdk": "cdk",
-    "openapi-export": "npx ts-node tools/openapi_export.ts",
-    "openapi-export-v2": "npx ts-node tools/openapi_export_v2.ts"
+    "deploy": "sh scripts/deploy.sh -s IbarakiCdkSampleApiStack",
+    "deploy-v2": "sh scripts/deploy-v2.sh -s IbarakiCdkSampleApiV2Stack"
   },
   "devDependencies": {
     "@types/jest": "^29.4.0",
     "@types/node": "18.14.6",
-    "aws-cdk": "^2.72.0",
+    "aws-cdk": "^2.110.1",
     "jest": "^29.5.0",
     "ts-jest": "^29.0.5",
     "ts-node": "^10.9.1",

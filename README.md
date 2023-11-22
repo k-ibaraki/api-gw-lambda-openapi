@@ -1,13 +1,9 @@
-# AWS CDK
+# API Gateway - Lambda - OpenAPI
+
+CDKでAPI GatewayとLambdaを作成し、
+その後、OpenAPIドキュメントを出力するサンプルです。
 
 ## install
-
-install packages for lambda function
-```
-cd ibaraki-sample-lambda && npm i && cd -
-```
-
-install packages for cdk
 ```
 npm i
 ```
@@ -17,16 +13,19 @@ npm i
 npm run build
 ```
 
-
 ## deploy
+
+### RestAPI(ApiGateway v1)
 ```
-cdk deploy --profile {profile}
+npm run deploy -- -p {aws-profile}
 ```
 
-## delete
+### HttpAPI(ApiGateway v2)
 ```
-cdk destroy --profile {profile}
+npm run deploy-v2 -- -p {aws-profile}
 ```
 
-## AWS CDK reference
-https://docs.aws.amazon.com/cdk/api/v2/
+## destroy
+```
+npm run cdk -- destroy --all --profile {profile} 
+```
