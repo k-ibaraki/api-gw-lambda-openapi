@@ -26,6 +26,7 @@ export class IbarakiCdkSampleApiStack extends cdk.Stack {
     const ibarakiSampleIntegration = new apigateway.LambdaIntegration(ibarakiSampleLambda);
     const helloApi = api.root.addResource('{param}').addResource('hello');
     helloApi.addMethod('GET', ibarakiSampleIntegration, {
+      // レスポンスをなにも定義しないと、OpenAPIにもレスポンスが定義されない(フォーマットが不正になる)
       methodResponses: [
         {
           statusCode: '200',
