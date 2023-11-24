@@ -30,7 +30,7 @@ export class IbarakiCdkSampleApiV2Stack extends cdk.Stack {
       path: '/{param}/hello',
       methods: [apigw2.HttpMethod.GET],
       integration: new HttpLambdaIntegration("ibarakiSampleIntegration",
-        ibarakiSampleLambda
+        ibarakiSampleLambda,
       ),
     });
 
